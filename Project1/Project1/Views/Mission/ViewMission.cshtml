@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ViewMission";
+}
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Missions","Mission")">Missions</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewBag.missionName Mission</li>
+    </ol>
+</nav>
+
+<h2>@ViewBag.missionName mission FAQ's</h2>
+
+<h2>Mission Facts</h2>
+<ul>
+    <li>Mission Name: @ViewBag.missionName Mission</li>
+    <li>Mission President: @ViewBag.missionPresident</li>
+    <li>Mission Address: @ViewBag.missionAddress</li>
+    <li>Mission Language: @ViewBag.missionLanguage</li>
+    <li>Mission Climate: @ViewBag.missionClimate</li>
+    <li>Dominant Religion: @ViewBag.missionReligion</li>
+    <li>Mission Flag/Symbol: @ViewBag.missionFlag</li>
+</ul>
