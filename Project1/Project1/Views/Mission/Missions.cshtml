@@ -14,11 +14,25 @@
 
 <!-- DROPDOWN THAT CONTAINS THREE MISSION -->
 
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select a Mission
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="@Url.Action("ViewMission", "Mission", new { mission = "Mission1" })">Mission 1</a>
+        <a class="dropdown-item" href="@Url.Action("ViewMission", "Mission", new { mission = "Mission2" })">Mission 2</a>
+        <a class="dropdown-item" href="@Url.Action("ViewMission", "Mission", new { mission = "Mission3" })">Mission 3</a>
+    </div>
+</div>
+
+
+
 <!-- LINKS FOR THE CORRESPONDING MISSION VIEW-->
 
-@Html.ActionLink("Mission 1", "ViewMission", "Mission", new { mission = "Mission1" }, new { @class = "btn btn-primary btn-lg" })
+<!--Html.ActionLink("Mission 1", "ViewMission", "Mission", new { mission = "Mission1" }, new { class = "btn btn-primary btn-lg" })-->
 
-@Html.ActionLink("Mission 2", "ViewMission", "Mission", new { mission = "Mission2" }, new { @class = "btn btn-primary btn-lg" })
+<!--Html.ActionLink("Mission 2", "ViewMission", "Mission", new { mission = "Mission2" }, new { class = "btn btn-primary btn-lg" })-->
 
-@Html.ActionLink("Mission 3", "ViewMission", "Mission", new { mission = "Mission3" }, new { @class = "btn btn-primary btn-lg" })
+<!--Html.ActionLink("Mission 3", "ViewMission", "Mission", new { mission = "Mission3" }, new { class = "btn btn-primary btn-lg" })-->
 
