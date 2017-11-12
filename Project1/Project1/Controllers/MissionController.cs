@@ -22,13 +22,13 @@ namespace MissionSiteProject.Controllers
         public ActionResult ViewMission(string mission)
         {
             ViewBag.missionName = mission;
-            if(mission == "Mission 1")
+            if(mission == "Korea Daejeon")
             {
-                ViewBag.missionPresident = "";
-                ViewBag.missionAddress = "";
-                ViewBag.missionLanguage = "";
+                ViewBag.missionPresident = "President Shin";
+                ViewBag.missionAddress = "Korea Daejeon Mission, Daejeon PO Box 38, Daejeon - si, Chungcheong - namdo 300836, South Korea";
+                ViewBag.missionLanguage = "Korean";
                 ViewBag.missionClimate = "";
-                ViewBag.missionReligion = "";
+                ViewBag.missionReligion = "Christianity, Buddhism";
                 ViewBag.missionFlag = "";
             }
             else if(mission == "Mission 2")
