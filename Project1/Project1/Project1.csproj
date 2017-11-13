@@ -154,6 +154,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\field.JPG" />
     <Content Include="Content\images\cats.JPG" />
+    <Content Include="Content\images\OhioFlag.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
