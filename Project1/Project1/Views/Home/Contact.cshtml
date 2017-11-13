@@ -5,13 +5,45 @@
 <h3>@ViewBag.Message</h3>
 
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
+    4095 North 6175 East<br/>
+    Provo, UT 84604<br />
+    801-123-4567
 </address>
 
 <address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+<h3>Feel free to contact us</h3>
+<div class="form-group">
+    <!-- Name field -->
+    <label class="control-label requiredField" for="name">Name</label>
+    <input class="form-control" id="name" name="name" type="text" />
+</div>
+
+<div class="form-group">
+    <!-- Email field -->
+    <label class="control-label requiredField" for="email">Email</label>
+    <input class="form-control" id="email" name="email" type="email" />
+</div>
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Comment Category
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item">General Questions</a></li>
+        <li><a class="dropdown-item">Mission Unavailable</a></li>
+        <li><a class="dropdown-item">Tech Support</a></li>
+    </ul>
+</div>
+
+<div class="form-group">
+    <!-- Email field -->
+    <label class="control-label requiredField" for="email">Email</label>
+    <input class="form-control" id="email" name="email" type="email" />
+</div>
+
+<div class="form-group">
+    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+</div>
