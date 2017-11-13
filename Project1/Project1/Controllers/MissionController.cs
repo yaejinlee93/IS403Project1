@@ -53,6 +53,23 @@ namespace MissionSiteProject.Controllers
                 ViewBag.missionFlag = "State Flag of Ohio";
                 ViewBag.missionImage = "/Content/images/ohio.png";
             }
+
+            var questions = new List<string>();
+            var answers = new List<string>();
+            questions.Add("How difficult is this mission?");
+            answers.Add("Medium difficulty. When I was serving, I jalfjkdfslkjdfalksjdflaksf . . .");
+            questions.Add("Question 2");
+            answers.Add("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu augue in tellus imperdiet venenatis. Maecenas consectetur iaculis ligula, eu fermentum magna iaculis sed. Quisque semper ipsum sit amet lectus posuere finibus. Aliquam ac efficitur leo. Phasellus nec justo purus. Vivamus congue aliquet ligula, in hendrerit dolor semper quis. Nullam pulvinar vestibulum hendrerit. Sed fermentum est in dolor aliquam tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent molestie et ipsum id semper.");
+            questions.Add("Question 3");
+            answers.Add("Answer 3");
+            ViewBag.questions = questions;
+            ViewBag.answers = answers;
+            string demoid = "#demo";
+            ViewBag.demoid = demoid;
+            string demo = "demo";
+            ViewBag.demo = demo;
+            ViewBag.combined = "";
+
             return View();
         }
     }

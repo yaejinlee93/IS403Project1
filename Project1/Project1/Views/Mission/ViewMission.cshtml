@@ -1,6 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "ViewMission";
+    ViewBag.iCount = 0;
+    string reply1 = "#reply";
+    string reply2 = "reply";
 }
 
 <nav aria-label="breadcrumb" role="navigation">
@@ -39,9 +42,42 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <p></p>
+            
+            <!-- FAQ SECTION-->
+            @foreach (var x in ViewBag.questions)
+            {
+                <h2 style="cursor:pointer;" href="@ViewBag.demoid@ViewBag.iCount" data-toggle="collapse">@x</h2>
+                <div id="@ViewBag.demo@ViewBag.iCount" class="collapse">
+                    @ViewBag.answers[ViewBag.iCount];
+
+                    <br /><br />
+
+                    <a href="@reply1@ViewBag.iCount" data-toggle="collapse" class="btn btn-default btn-sm">Reply to This Question</a>
+                    <form id="@reply2@ViewBag.iCount" class="collapse">
+                        <div class="form-group">
+                            <!-- Name field -->
+                            <label class="control-label requiredField" for="name">Name</label>
+                            <input class="form-control" id="name" name="name" type="text" />
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Message field -->
+                            <label class="control-label " for="message">Answer</label>
+                            <textarea class="form-control" cols="40" id="question" name="question" rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                ViewBag.iCount++;
+            }
+
         </div>
+
         <div class="col-md-6">
+            <h2>Ask a Question:</h2>
             <form>
                 <div class="form-group">
                     <!-- Name field -->
