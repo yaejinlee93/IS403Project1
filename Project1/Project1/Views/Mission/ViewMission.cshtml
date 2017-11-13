@@ -11,7 +11,7 @@
     </ol>
 </nav>
 
-<h2>@ViewBag.missionName mission FAQ's</h2>
+<h2>@ViewBag.missionName Mission FAQ's</h2>
 
 <div class="container">
     <div class="row">
@@ -30,8 +30,8 @@
         </div>
         <div class="col-md-6">
 
-            <img src="~/Content/images/cats.JPG" style="width:400px;"/>
-            
+            <img src="@ViewBag.missionImage" style="width:400px;"/>
+
         </div>
     </div>
 </div>
@@ -39,14 +39,26 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <img src="~/Content/images/cats.JPG" style="width:400px;" />"
-
+            <p></p>
         </div>
         <div class="col-md-6">
-            <br />
-            <h2>Q&A</h2>
-            <p>Q: What kind of clothes should I bring?<br />A: Missionary ones</p>
-            <p>Q: What is the best way to prepare to serve? <br />A: Do all you can</p>
+            <form>
+                <div class="form-group">
+                    <!-- Name field -->
+                    <label class="control-label requiredField" for="name">Name</label>
+                    <input class="form-control" id="name" name="name" type="text" />
+                </div>
+
+                <div class="form-group">
+                    <!-- Message field -->
+                    <label class="control-label " for="message">Question</label>
+                    <textarea class="form-control" cols="40" id="question" name="question" rows="8"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
