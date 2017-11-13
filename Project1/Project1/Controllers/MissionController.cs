@@ -30,16 +30,18 @@ namespace MissionSiteProject.Controllers
                 ViewBag.missionLanguage = "Korean";
                 ViewBag.missionClimate = "";
                 ViewBag.missionReligion = "Christianity, Buddhism";
-                ViewBag.missionFlag = "";
+                ViewBag.missionFlag = "Flag of South Korea";
+                ViewBag.missionImage = "/Content/images/korea.png";
             }
-            else if(mission == "Mission 2")
+            else if(mission == "Russia Rostov-na-Donu")
             {
-                ViewBag.missionPresident = "";
+                ViewBag.missionPresident = "President Miner";
                 ViewBag.missionAddress = "";
-                ViewBag.missionLanguage = "";
-                ViewBag.missionClimate = "";
-                ViewBag.missionReligion = "";
-                ViewBag.missionFlag = "";
+                ViewBag.missionLanguage = "Russian";
+                ViewBag.missionClimate = "Humid Continental Climate";
+                ViewBag.missionReligion = "Russian Orthodox";
+                ViewBag.missionFlag = "Flag of Russia (three stripes)";
+                ViewBag.missionImage = "/Content/images/russia.png";
             }
             else if(mission == "Mission 3")
             {
@@ -49,6 +51,7 @@ namespace MissionSiteProject.Controllers
                 ViewBag.missionClimate = "";
                 ViewBag.missionReligion = "";
                 ViewBag.missionFlag = "";
+                ViewBag.missionImage = "";
             }
             return View();
         }
