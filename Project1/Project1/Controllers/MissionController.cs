@@ -43,15 +43,15 @@ namespace MissionSiteProject.Controllers
                 ViewBag.missionFlag = "Flag of Russia (three stripes)";
                 ViewBag.missionImage = "/Content/images/russia.png";
             }
-            else if(mission == "Mission 3")
+            else if(mission == "Ohio Cincinnati")
             {
-                ViewBag.missionPresident = "";
-                ViewBag.missionAddress = "";
-                ViewBag.missionLanguage = "";
-                ViewBag.missionClimate = "";
-                ViewBag.missionReligion = "";
-                ViewBag.missionFlag = "";
-                ViewBag.missionImage = "";
+                ViewBag.missionPresident = "President Porter";
+                ViewBag.missionAddress = "4610 N Bend Rd Cincinnati, Ohio 45211 - 1824 United States";
+                ViewBag.missionLanguage = "English";
+                ViewBag.missionClimate = "Humid hot summer, humid cold winters";
+                ViewBag.missionReligion = "Christianity";
+                ViewBag.missionFlag = "State Flag of Ohio";
+                ViewBag.missionImage = "/Content/images/ohio.png";
             }
             return View();
         }
