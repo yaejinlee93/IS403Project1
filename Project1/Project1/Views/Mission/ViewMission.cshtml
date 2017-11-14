@@ -48,7 +48,7 @@
             @foreach (var x in ViewBag.questions)
             {
                 <h4 style="cursor:pointer;" class="btn btn-lg btn-default"  href="@ViewBag.demoid@ViewBag.iCount" data-toggle="collapse">@x</h4>
-                <br />
+                <br /><br />
                 <div id="@ViewBag.demo@ViewBag.iCount" class="collapse">
                     @ViewBag.answers[ViewBag.iCount]
 
