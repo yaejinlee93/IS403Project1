@@ -1,8 +1,7 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h1>@ViewBag.Title</h1>
 
 <address>
     4095 North 6175 East<br/>
@@ -37,11 +36,12 @@
         <li><a class="dropdown-item">Tech Support</a></li>
     </ul>
 </div>
+<br />
 
 <div class="form-group">
-    <!-- Email field -->
-    <label class="control-label requiredField" for="email">Email</label>
-    <input class="form-control" id="email" name="email" type="email" />
+    <!-- Message field -->
+    <label class="control-label " for="message">Message</label>
+    <textarea class="form-control" cols="40" id="message" name="message" rows="8"></textarea>
 </div>
 
 <div class="form-group">

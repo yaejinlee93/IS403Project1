@@ -14,20 +14,20 @@
     </ol>
 </nav>
 
-<h2>@ViewBag.missionName Mission FAQ's</h2>
+<h1>@ViewBag.missionName Mission FAQ's</h1>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Mission Facts</h2>
-            <ul>
-                <li>Mission Name: @ViewBag.missionName Mission</li>
-                <li>Mission President: @ViewBag.missionPresident</li>
-                <li>Mission Address: @ViewBag.missionAddress</li>
-                <li>Mission Language: @ViewBag.missionLanguage</li>
-                <li>Mission Climate: @ViewBag.missionClimate</li>
+            <h2>Facts</h2>
+            <ul style="font-size:16px;">
+                <li>Name: @ViewBag.missionName Mission</li>
+                <li>President: @ViewBag.missionPresident</li>
+                <li>Address: @ViewBag.missionAddress</li>
+                <li>Language: @ViewBag.missionLanguage</li>
+                <li>Climate: @ViewBag.missionClimate</li>
                 <li>Dominant Religion: @ViewBag.missionReligion</li>
-                <li>Mission Flag/Symbol: @ViewBag.missionFlag</li>
+                <li>Flag/Symbol: @ViewBag.missionFlag</li>
             </ul>
 
         </div>
@@ -41,18 +41,22 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             
             <!-- FAQ SECTION-->
+            <h2>Frequently Asked Questions</h2>
             @foreach (var x in ViewBag.questions)
             {
-                <h2 style="cursor:pointer;" href="@ViewBag.demoid@ViewBag.iCount" data-toggle="collapse">@x</h2>
+                <h4 style="cursor:pointer;" class="btn btn-lg btn-default"  href="@ViewBag.demoid@ViewBag.iCount" data-toggle="collapse">@x</h4>
+                <br />
                 <div id="@ViewBag.demo@ViewBag.iCount" class="collapse">
-                    @ViewBag.answers[ViewBag.iCount];
+                    @ViewBag.answers[ViewBag.iCount]
 
                     <br /><br />
 
-                    <a href="@reply1@ViewBag.iCount" data-toggle="collapse" class="btn btn-default btn-sm">Reply to This Question</a>
+                    <a href="@reply1@ViewBag.iCount" data-toggle="collapse" class="btn btn-default btn-sm">Reply to this Question</a>
+                    <br />
+                    <br />
                     <form id="@reply2@ViewBag.iCount" class="collapse">
                         <div class="form-group">
                             <!-- Name field -->
@@ -74,9 +78,14 @@
                 ViewBag.iCount++;
             }
 
+            </div>
         </div>
 
-        <div class="col-md-6">
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
             <h2>Ask a Question:</h2>
             <form>
                 <div class="form-group">
