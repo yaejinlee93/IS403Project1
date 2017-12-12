@@ -72,5 +72,16 @@ namespace MissionSiteProject.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult ViewFAQ(string mission)
+        {
+            IEnumerable<MissionQuestions> faq = null;
+            if(mission != null || mission != "")
+            {
+                faq = db.Database.SqlQuery<MissionQuestions>("SELECT * FROM MissionQuestions WHERE missionName = '" + mission + "';");
+            }
+            return View(faq);
+        }
     }
 }
