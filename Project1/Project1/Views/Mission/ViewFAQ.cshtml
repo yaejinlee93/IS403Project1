@@ -34,29 +34,13 @@
     }
 
     <br />
-    <br />
+   
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>Ask a Question:</h2>
-            <form>
-                <div class="form-group">
-                    <!-- Name field -->
-                    <label class="control-label requiredField" for="name">Name</label>
-                    <input class="form-control" id="name" name="name" type="text" />
-                </div>
-
-                <div class="form-group">
-                    <!-- Message field -->
-                    <label class="control-label " for="message">Question</label>
-                    <textarea class="form-control" cols="40" id="question" name="question" rows="8"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-                </div>
-            </form>
+            <a href="@Url.Action("AskQuestion", new { missionID = ViewBag.missionID })" class="btn btn-primary">Ask a Question</a>
+            
         </div>
     </div>
 </div>

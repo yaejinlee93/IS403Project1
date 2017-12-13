@@ -91,6 +91,9 @@ namespace MissionSiteProject.Controllers
                 faq = db.Database.SqlQuery<MissionQuestions>("SELECT * FROM MissionQuestions WHERE missionID = '" + oMission.missionID + "';");
                 ViewBag.missionName = oMission.missionName;
                 missionName = oMission.missionName;
+                ViewBag.missionID = oMission.missionID;
+                
+
             return View(faq);
         }
 
@@ -103,6 +106,32 @@ namespace MissionSiteProject.Controllers
                 db.Database.ExecuteSqlCommand("UPDATE MissionQuestions SET mqAnswer = '" + answer + "' WHERE missionQuestionID = " + missionQuestionID + ";");
             }
                 return RedirectToAction("ViewFAQ","Mission",missionName);
+        }
+
+        //get
+        public ActionResult AskQuestion(int missionID)
+        {
+            MissionQuestions item = new MissionQuestions();
+            item.missionID = missionID;
+            item.userID = 0;
+
+
+            return View(item);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AskQuestion([Bind(Include = "missionQuestionID,missionID,userID,mqQuestion,mqAnswer")] MissionQuestions missionQuestions)
+        {
+            if (ModelState.IsValid)
+            {
+                db.MissionQuestion.Add(missionQuestions);
+                db.SaveChanges();
+                return RedirectToAction("ViewFAQ");
+            }
+
+            return View("ViewFAQ" , new {mission = missionName});
         }
     }
 }

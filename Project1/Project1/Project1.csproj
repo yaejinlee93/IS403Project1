@@ -224,6 +224,8 @@
     <Content Include="Views\Mission\ViewMission.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Mission\ViewFAQ.cshtml" />
+    <Content Include="Views\Home\CreateUser.cshtml" />
+    <Content Include="Views\Mission\AskQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

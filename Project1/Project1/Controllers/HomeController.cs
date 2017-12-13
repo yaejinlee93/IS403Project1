@@ -68,5 +68,24 @@ namespace Project1.Controllers
 
             return View();
         }
+
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateUser([Bind(Include = "userID,userEmail,userPassword,userFirstName,userLastName")] Users users)
+        {
+            if (ModelState.IsValid)
+            {
+                db.User.Add(users);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(users);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Project1.Models
 
         public int userID { get; set; }
 
+        [DisplayName("Question")]
         public String mqQuestion { get; set; }
 
         public String mqAnswer { get; set; }
