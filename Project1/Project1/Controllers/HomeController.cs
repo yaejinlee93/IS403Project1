@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Project1.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Project1.Models;
 using System.Web.Security;
 
 namespace Project1.Controllers
@@ -10,10 +12,12 @@ namespace Project1.Controllers
     public class HomeController : Controller
     {
         private CalledToServeContext db = new CalledToServeContext();
+        static string missionName = "";
 
         //GET: Home
-        public ActionResult Login()
+        public ActionResult Login(string mission)
         {
+            missionName = mission;
             ViewBag.errorMessage = "";
             return View();
         }
@@ -26,20 +30,17 @@ namespace Project1.Controllers
             String password = form["Password"].ToString();
 
             var oAccount = db.Database.SqlQuery<Users>
-            ("SELECT * FROM [Accounts] WHERE AccountName COLLATE Latin1_General_CS_AS = '" + username + "' AND " +
-            "AccountPassword COLLATE Latin1_General_CS_AS = '" + password + "'").SingleOrDefault();
+            ("SELECT * FROM [Users] WHERE userEmail COLLATE Latin1_General_CS_AS = '" + username + "' AND " +
+            "userPassword COLLATE Latin1_General_CS_AS = '" + password + "'").SingleOrDefault();
 
             if (oAccount != null)
             {
                 FormsAuthentication.SetAuthCookie(username, rememberMe);
 
-                TempData["myObject"] = oAccount;
-                TempData["AccountID"] = oAccount.accountID;
-
-                Response.Cookies["AccountName"].Value = oAccount.accountName;
+                Response.Cookies["AccountName"].Value = oAccount.userEmail;
                 Response.Cookies["AccountName"].Expires = DateTime.Now.AddHours(1);
 
-                return RedirectToAction("EmployeePortal", "Employee");
+                return RedirectToAction("ViewMission", "Mission", new { mission = missionName });
             }
             else
             {

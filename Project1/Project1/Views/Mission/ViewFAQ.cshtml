@@ -1,56 +1,42 @@
-﻿@model Project1.Models.MissionQuestions
+﻿@model IEnumerable<Project1.Models.MissionQuestions>
 
 @{
-    ViewBag.Title = "ViewFAQ";
+    ViewBag.Title = "Mission FAQ";
 }
 
-<h2>View FAQ</h2>
+<h2>@ViewBag.missionName Mission</h2>
+
+    <h2>Frequently Asked Questions</h2>
+
+    @foreach (var item in Model)
+    {
+                <table class ="table">
+                <tr>
+                    <th style="font-size:25px;">
+                        @Html.DisplayFor(modelItem => item.mqQuestion)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mqAnswer)
+                        <br /><br />
+                        @using (Html.BeginForm("AnswerQuestion", "Mission", FormMethod.Post, new { id = item.missionQuestionID }))
+                        {
+                            @Html.Label("Answer this Question")
+                            <input autofocus style="display:block" class="form-control" type="text" id="answer" name="answer" value="" />
+                            <input style="display:none" type="number" id="missionQuestionID" name="missionQuestionID" value="@item.missionQuestionID" />
+                            <br />
+                            <input class="btn btn-default" type="submit" value="Submit" />
+                        }
+                    </td>
+                </tr>
+              </table>
+    }
+
+    <br />
+    <br />
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-
-            <!-- FAQ SECTION-->
-            <h2>Frequently Asked Questions</h2>
-            @foreach (var x in ViewBag.questions)
-            {
-                <h4 style="cursor:pointer;" class="btn btn-lg btn-default" href="@ViewBag.demoid@ViewBag.iCount" data-toggle="collapse">@x</h4>
-                <br /><br />
-                <div id="@ViewBag.demo@ViewBag.iCount" class="collapse">
-                    @ViewBag.answers[ViewBag.iCount]
-
-                    <br /><br />
-
-                    <a href="@reply1@ViewBag.iCount" data-toggle="collapse" class="btn btn-default btn-sm">Reply to this Question</a>
-                    <br />
-                    <br />
-                    <form id="@reply2@ViewBag.iCount" class="collapse">
-                        <div class="form-group">
-                            <!-- Name field -->
-                            <label class="control-label requiredField" for="name">Name</label>
-                            <input class="form-control" id="name" name="name" type="text" />
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Message field -->
-                            <label class="control-label " for="message">Answer</label>
-                            <textarea class="form-control" cols="40" id="question" name="question" rows="4"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
-                ViewBag.iCount++;
-            }
-
-        </div>
-    </div>
-
-    <br />
-    <br />
-
     <div class="row">
         <div class="col-md-12">
             <h2>Ask a Question:</h2>
@@ -74,3 +60,4 @@
         </div>
     </div>
 </div>
+

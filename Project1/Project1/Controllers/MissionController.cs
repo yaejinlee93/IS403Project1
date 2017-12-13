@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Project1.Models;
+using Project1.DAL;
 
 namespace MissionSiteProject.Controllers
 {
     public class MissionController : Controller
     {
+        private CalledToServeContext db = new CalledToServeContext();
+        static string missionName = "";
+
         // GET: Mission
         public ActionResult Index()
         {
@@ -78,11 +82,27 @@ namespace MissionSiteProject.Controllers
         public ActionResult ViewFAQ(string mission)
         {
             IEnumerable<MissionQuestions> faq = null;
-            if(mission != null || mission != "")
+            if(mission != null && mission != "")
             {
-                faq = db.Database.SqlQuery<MissionQuestions>("SELECT * FROM MissionQuestions WHERE missionName = '" + mission + "';");
+                missionName = mission;
             }
+
+                var oMission = db.Database.SqlQuery<Missions>("SELECT * FROM Missions WHERE missionName = '" + missionName + "'").First();
+                faq = db.Database.SqlQuery<MissionQuestions>("SELECT * FROM MissionQuestions WHERE missionID = '" + oMission.missionID + "';");
+                ViewBag.missionName = oMission.missionName;
+                missionName = oMission.missionName;
             return View(faq);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AnswerQuestion(string answer, int? missionQuestionID)
+        {
+            if (missionQuestionID != null)
+            {
+                db.Database.ExecuteSqlCommand("UPDATE MissionQuestions SET mqAnswer = '" + answer + "' WHERE missionQuestionID = " + missionQuestionID + ";");
+            }
+                return RedirectToAction("ViewFAQ","Mission",missionName);
         }
     }
 }
